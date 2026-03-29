@@ -1,21 +1,48 @@
 # VentureInKorea Embed Widget
 
-> Embeddable VentureInKorea widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+> Korea startup ecosystem. Embeddable widgets for any website. Zero dependencies, Shadow DOM isolation.
 
 ## Quick Start
 
-Add to any HTML page:
-- Script: <script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>
+<div data-ventureinkorea="entity" data-slug="example"></div>
+```
+
+## Available Widget Types (4)
+
+- entity: `data-ventureinkorea="entity"`
+- glossary: `data-ventureinkorea="glossary"`
+- guide: `data-ventureinkorea="guide"`
+- search: `data-ventureinkorea="search"`
+
+## Customization
+
+- **Themes**: light, dark, sepia, auto (follows system preference)
+- **Sizes**: compact (280px), default (420px), large (720px)
+- **Styles**: modern, classic
+
+```html
+<div data-ventureinkorea="entity" data-slug="example"
+     data-theme="auto" data-size="compact" data-style-variant="modern"></div>
+```
+
+## Integration Methods
+
+1. **Script tag** (recommended): `<script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>`
+2. **iframe**: `https://ventureinkorea.com/iframe/entity/{slug}/`
+3. **oEmbed**: `https://ventureinkorea.com/oembed?url={page_url}&format=json`
+4. **Badge**: `https://ventureinkorea.com/badge/site.svg`
 
 ## Links
 
 - Main site: https://ventureinkorea.com
 - Widget docs: https://widget.ventureinkorea.com
-- npm: https://www.npmjs.com/package/ventureinkorea-embed
-- GitHub: https://github.com/dobestan/ventureinkorea-embed
-- API: https://ventureinkorea.com/developers/
+- API documentation: https://ventureinkorea.com/developers/
+- npm package: https://www.npmjs.com/package/ventureinkorea-embed
+- GitHub: https://github.com/fyipedia/ventureinkorea-embed
 
-## Standalone Widget Family
+## Standalone Widget Network
 
 - [ReadWhitepaper Widget](https://widget.readwhitepaper.com)
 - [CryptoLogo Widget](https://widget.crypto-logo.com)
