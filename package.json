@@ -1,0 +1,28 @@
+{
+  "name": "ventureinkorea-embed",
+  "version": "1.0.0",
+  "description": "Embeddable widgets for VentureInKorea — Korean venture startup database, glossary, and guides",
+  "main": "dist/embed.min.js",
+  "module": "dist/embed.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "ventureinkorea",
+    "korean-startups",
+    "venture-certification",
+    "embed-widget",
+    "startup-glossary",
+    "korean-ventures"
+  ],
+  "author": "dobestan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dobestan/ventureinkorea-embed"
+  },
+  "homepage": "https://widget.ventureinkorea.com"
+}
