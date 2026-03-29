@@ -213,6 +213,17 @@ The Korean government's venture certification system (벤처기업확인제도) 
 - **Rich snippets** — glossary widgets inject DefinedTerm JSON-LD into host page
 - **< 10KB gzipped** — minimal bundle size
 
+## Embed Widget
+
+Embed [VentureInKorea](https://ventureinkorea.com) widgets on any website with [ventureinkorea-embed](https://widget.ventureinkorea.com):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>
+<div data-ventureinkorea="entity" data-slug="example"></div>
+```
+
+Zero dependencies · Shadow DOM · 4 themes (light/dark/sepia/auto) · [Widget docs](https://widget.ventureinkorea.com)
+
 ## License
 
 MIT
