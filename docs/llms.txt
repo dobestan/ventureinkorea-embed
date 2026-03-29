@@ -1,0 +1,25 @@
+# VentureInKorea Embed Widget
+
+> Embeddable VentureInKorea widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+
+## Quick Start
+
+Add to any HTML page:
+- Script: <script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>
+
+## Links
+
+- Main site: https://ventureinkorea.com
+- Widget docs: https://widget.ventureinkorea.com
+- npm: https://www.npmjs.com/package/ventureinkorea-embed
+- GitHub: https://github.com/dobestan/ventureinkorea-embed
+- API: https://ventureinkorea.com/developers/
+
+## Standalone Widget Family
+
+- [ReadWhitepaper Widget](https://widget.readwhitepaper.com)
+- [CryptoLogo Widget](https://widget.crypto-logo.com)
+
+## Part of FYIPedia
+
+Open-source developer tools ecosystem — https://fyipedia.com
