@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# VentureInKorea Embed Widget
+# Main site: https://ventureinkorea.com
+# Widget docs: https://widget.ventureinkorea.com
+# npm: https://www.npmjs.com/package/ventureinkorea-embed
