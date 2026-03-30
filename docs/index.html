@@ -1,70 +1,228 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://widget.ventureinkorea.com">
-    <meta property="og:title" content="VentureInKorea Embed Widget">
-    <meta property="og:description" content="Embed VentureInKorea widgets on any website. Zero dependencies, Shadow DOM, 4 themes.">
-    <meta property="og:image" content="https://ventureinkorea.com/static/og/homepage.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="https://widget.ventureinkorea.com">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="VentureInKorea">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="VentureInKorea Embed Widget">
-    <meta name="twitter:description" content="Embed VentureInKorea widgets on any website.">
-    <meta name="twitter:image" content="https://ventureinkorea.com/static/og/homepage.png">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VentureInKorea Embed Widget — Documentation</title>
-    <meta name="robots" content="index, follow">
-  <meta name="description" content="Embeddable widgets for VentureInKorea — Korean venture startup database, glossary, and guides.">
+  <title>VentureInKorea Embed Widget — Korean Startup Widgets for Any Website</title>
+  <meta name="description" content="Embed Korean venture startup cards, glossary terms, guides, and search on any website. Zero dependencies, Shadow DOM isolation, 4 themes, 2 styles.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://widget.ventureinkorea.com">
+  <meta property="og:title" content="VentureInKorea Embed Widget — Korean Startup Widgets">
+  <meta property="og:description" content="Embed Korean venture startup widgets on any website. Zero dependencies, Shadow DOM, 4 themes.">
+  <meta property="og:image" content="https://ventureinkorea.com/static/og/homepage.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://widget.ventureinkorea.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VentureInKorea">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="VentureInKorea Embed Widget">
+  <meta name="twitter:description" content="Embed Korean venture startup widgets on any website. Zero dependencies, Shadow DOM, 4 themes.">
+  <meta name="twitter:image" content="https://ventureinkorea.com/static/og/homepage.png">
   <style>
-    body {
-      font-family: system-ui, -apple-system, sans-serif;
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 24px;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    h1 { margin-bottom: 8px; }
-    p.tagline { color: #64748b; margin-bottom: 32px; }
-    code {
-      background: #f1f5f9;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-size: 0.9em;
-    }
-    pre {
-      background: #1e293b;
-      color: #e2e8f0;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-    a { color: #2563EB; }
+    :root { --accent: #2563EB; --bg: #0f172a; --surface: #1e293b; --text: #f8fafc; --muted: #94a3b8; --border: #334155; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 48px; }
+    .hero h1 { font-size: 2.5rem; font-weight: 700; margin-bottom: 12px; }
+    .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 24px; }
+    .hero-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .hero-buttons a { padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+    section { padding: 48px 0; }
+    section h2 { font-size: 1.5rem; font-weight: 600; margin-bottom: 16px; color: var(--accent); }
+    section p { color: var(--muted); margin-bottom: 16px; }
+    pre { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; overflow-x: auto; margin: 16px 0; position: relative; }
+    code { font-family: "JetBrains Mono", "Fira Code", monospace; font-size: 0.85rem; color: #e2e8f0; }
+    .code-label { position: absolute; top: 8px; right: 8px; font-size: 0.7rem; color: var(--muted); background: var(--bg); padding: 2px 6px; border-radius: 4px; }
+    .widget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin: 24px 0; }
+    .widget-demo { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 20px; }
+    .widget-demo h3 { font-size: 1rem; margin-bottom: 8px; }
+    .widget-demo p { font-size: 0.85rem; color: var(--muted); }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+    th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    th { color: var(--accent); font-weight: 600; }
+    td code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; }
+    .themes-row { display: flex; gap: 16px; flex-wrap: wrap; margin: 16px 0; }
+    .theme-card { flex: 1; min-width: 200px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; text-align: center; }
+    .theme-card .dot { width: 24px; height: 24px; border-radius: 50%; display: inline-block; margin-bottom: 8px; }
+    footer { padding: 48px 0; border-top: 1px solid var(--border); color: var(--muted); font-size: 0.85rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+    .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 24px; }
+    .footer-grid h4 { color: var(--text); font-size: 0.9rem; margin-bottom: 8px; }
+    .footer-grid ul { list-style: none; }
+    .footer-grid li { margin-bottom: 4px; }
+    @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 1.8rem; } }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "name": "VentureInKorea Embed Widget",
+        "url": "https://widget.ventureinkorea.com",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Any (Web Browser)",
+        "description": "Embeddable Korean venture startup widgets for any website. Shadow DOM isolation, 4 themes.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "VentureInKorea",
+          "url": "https://ventureinkorea.com"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "VentureInKorea", "item": "https://ventureinkorea.com" },
+          { "@type": "ListItem", "position": 2, "name": "Embed Widget" }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "ventureinkorea-embed",
+        "codeRepository": "https://github.com/dobestan/ventureinkorea-embed",
+        "programmingLanguage": "TypeScript",
+        "runtimePlatform": "Browser",
+        "license": "https://opensource.org/licenses/MIT"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <h1>VentureInKorea Embed Widget</h1>
-  <p class="tagline">Embed Korean venture startup data on any website.</p>
+  <div class="hero">
+    <h1><span>VentureInKorea</span> Embed Widget</h1>
+    <p>Add Korean venture startup cards, glossary terms, guides, and search to any website. 4 widget types, 4 themes, Shadow DOM isolation, zero dependencies.</p>
+    <div class="hero-buttons">
+      <a href="#quick-start" class="btn-primary">Get Started</a>
+      <a href="https://github.com/dobestan/ventureinkorea-embed" class="btn-secondary">GitHub</a>
+      <a href="https://www.npmjs.com/package/ventureinkorea-embed" class="btn-secondary">npm</a>
+    </div>
+  </div>
 
-  <h2>Quick Start</h2>
-  <pre><code>&lt;script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"&gt;&lt;/script&gt;
+  <div class="container">
+    <section id="quick-start">
+      <h2>Quick Start</h2>
+      <p>Copy and paste this code into your HTML to embed a startup card:</p>
+      <pre><code>&lt;!-- Load widget --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"&gt;&lt;/script&gt;
 
-&lt;div data-ventureinkorea="entity" data-slug="example-venture"&gt;&lt;/div&gt;</code></pre>
+&lt;!-- Startup card --&gt;
+&lt;div data-ventureinkorea="entity" data-slug="toss"&gt;&lt;/div&gt;
 
-  <h2>Links</h2>
-  <ul>
-    <li><a href="https://ventureinkorea.com">VentureInKorea</a></li>
-    <li><a href="https://github.com/dobestan/ventureinkorea-embed">GitHub</a></li>
-    <li><a href="https://www.npmjs.com/package/ventureinkorea-embed">npm</a></li>
-  </ul>
+&lt;!-- Glossary term --&gt;
+&lt;div data-ventureinkorea="glossary" data-slug="series-a" data-theme="dark"&gt;&lt;/div&gt;</code><span class="code-label">HTML</span></pre>
+    </section>
 
-  <p style="margin-top:48px;color:#94a3b8;font-size:0.85em;">
-    &copy; 2026 dobestan. MIT License.
-  </p>
+    <section id="live-demo">
+      <h2>Live Demo</h2>
+      <p>These widgets load data from the <a href="https://ventureinkorea.com/developers/">VentureInKorea API</a>:</p>
+      <div style="display: flex; gap: 24px; flex-wrap: wrap; margin: 24px 0;">
+        <div data-ventureinkorea="entity" data-slug="toss" data-theme="light" style="flex: 1; min-width: 300px;"></div>
+        <div data-ventureinkorea="glossary" data-slug="series-a" data-theme="dark" style="flex: 1; min-width: 300px;"></div>
+      </div>
+    </section>
+
+    <section id="widgets">
+      <h2>Widget Types</h2>
+      <p>Four widget types to embed Korean venture ecosystem content anywhere:</p>
+      <div class="widget-grid">
+        <div class="widget-demo">
+          <h3>Startup Card</h3>
+          <p>Full startup card with name, category, funding stage, and description. Links to the startup profile on <a href="https://ventureinkorea.com">VentureInKorea</a>.</p>
+          <code>data-ventureinkorea="entity"</code>
+        </div>
+        <div class="widget-demo">
+          <h3>Glossary Term</h3>
+          <p>Venture/startup glossary definition card. Sourced from the <a href="https://ventureinkorea.com/glossary/">VentureInKorea Glossary</a>.</p>
+          <code>data-ventureinkorea="glossary"</code>
+        </div>
+        <div class="widget-demo">
+          <h3>Guide Card</h3>
+          <p>Venture guide summary card with excerpt and link. Browse all <a href="https://ventureinkorea.com/guides/">VentureInKorea Guides</a>.</p>
+          <code>data-ventureinkorea="guide"</code>
+        </div>
+        <div class="widget-demo">
+          <h3>Search Widget</h3>
+          <p>Search form linking to <a href="https://ventureinkorea.com">VentureInKorea</a> search results.</p>
+          <code>data-ventureinkorea="search"</code>
+        </div>
+      </div>
+    </section>
+
+    <section id="themes">
+      <h2>Themes &amp; Styles</h2>
+      <p>4 themes (light, dark, sepia, auto) and 2 styles (modern, minimal). The <code>auto</code> theme follows the user's system preference via <code>prefers-color-scheme</code>.</p>
+      <div class="themes-row">
+        <div class="theme-card"><div class="dot" style="background: #ffffff; border: 1px solid #e2e8f0;"></div><br>Light</div>
+        <div class="theme-card"><div class="dot" style="background: #1a1a1a;"></div><br>Dark</div>
+        <div class="theme-card"><div class="dot" style="background: #f5f0e8;"></div><br>Sepia</div>
+        <div class="theme-card"><div class="dot" style="background: linear-gradient(135deg, #ffffff 50%, #1a1a1a 50%);"></div><br>Auto</div>
+      </div>
+    </section>
+
+    <section id="options">
+      <h2>Widget Options</h2>
+      <table>
+        <thead><tr><th>Attribute</th><th>Values</th><th>Default</th></tr></thead>
+        <tbody>
+          <tr><td><code>data-ventureinkorea</code></td><td><code>entity</code>, <code>glossary</code>, <code>guide</code>, <code>search</code></td><td>Required</td></tr>
+          <tr><td><code>data-slug</code></td><td>Startup or term slug</td><td>Required</td></tr>
+          <tr><td><code>data-theme</code></td><td><code>light</code>, <code>dark</code>, <code>sepia</code>, <code>auto</code></td><td><code>auto</code></td></tr>
+          <tr><td><code>data-size</code></td><td><code>compact</code>, <code>default</code>, <code>large</code></td><td><code>default</code></td></tr>
+          <tr><td><code>data-style-variant</code></td><td><code>modern</code>, <code>minimal</code></td><td><code>modern</code></td></tr>
+          <tr><td><code>data-no-snippet</code></td><td><code>true</code> (disable rich snippets)</td><td>Enabled</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="cdn">
+      <h2>CDN Options</h2>
+      <p>The widget is served from jsDelivr CDN with automatic version pinning:</p>
+      <pre><code>&lt;!-- Recommended: jsDelivr (auto-cached, global CDN) --&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"&gt;&lt;/script&gt;
+
+&lt;!-- Alternative: npm install --&gt;
+npm install ventureinkorea-embed</code><span class="code-label">SHELL</span></pre>
+    </section>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>VentureInKorea</h4>
+          <ul>
+            <li><a href="https://ventureinkorea.com">Homepage</a></li>
+            <li><a href="https://ventureinkorea.com/developers/">API Docs</a></li>
+            <li><a href="https://ventureinkorea.com/glossary/">Glossary</a></li>
+            <li><a href="https://ventureinkorea.com/guides/">Guides</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="https://github.com/dobestan/ventureinkorea-embed">GitHub</a></li>
+            <li><a href="https://www.npmjs.com/package/ventureinkorea-embed">npm</a></li>
+            <li><a href="https://ventureinkorea.com/api/openapi.json">OpenAPI Spec</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Standalone Widgets</h4>
+          <ul>
+            <li><a href="https://widget.crypto-logo.com">CryptoLogo Widget</a></li>
+            <li><a href="https://widget.readwhitepaper.com">ReadWhitepaper Widget</a></li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align: center;">&copy; 2026 dobestan. MIT License. Powered by <a href="https://ventureinkorea.com">VentureInKorea</a>.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/ventureinkorea-embed@1/dist/embed.min.js"></script>
 </body>
 </html>
